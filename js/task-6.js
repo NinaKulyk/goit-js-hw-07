@@ -24,6 +24,8 @@ desrtoyBtn.addEventListener("click", destroyBoxes);
 function createBoxes(amount) {
   const boxesContainer = document.getElementById('boxes');
   boxesContainer.innerHTML = '';
+
+  const fragment = document.createDocumentFragment();
   
   let size = 30;
   
@@ -35,10 +37,13 @@ function createBoxes(amount) {
     box.style.width = `${size}px`;
     box.style.height = `${size}px`;
 
-    boxesContainer.appendChild(box);
+    fragment.appendChild(box);
 
     size += 10;
   }
+
+  boxesContainer.appendChild(fragment);
+
 }
 
 function destroyBoxes() {
